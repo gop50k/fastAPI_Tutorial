@@ -1,10 +1,40 @@
-<!-- templates/admin.html -->
-
 {% extends "layout.html" %}
 {% block content %}
+<html lang="ja">
 <br>
 <h2>Administrator page</h2>
 <hr>
-<p>Hi, {{ username }}.</p>
+<p>Hi, {{ user['username'] }}.</p>
+
+<br>
+<table class="table">
+    <thead class="table-dark">
+    <tr>
+        <th>#</th>
+        <th>Content</th>
+        <th>Deadline</th>
+        <th>WriteDate</th>
+        <th>Done/WIP</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for t in task %}
+    <tr>
+        <td>{{ t['id'] }}</td>
+        <td>{{ t['content'] }}</td>
+        <td>{{ t['deadline'] }}</td>
+        <td>{{ t['date'] }}</td>
+        <td>{% if t['done'] %}
+            <div class="text-success">?</div>
+            {% else %}
+            <div class="text-danger">?</div>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</html>
+
 
 {% endblock %}
