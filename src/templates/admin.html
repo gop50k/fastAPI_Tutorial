@@ -13,7 +13,7 @@
         <th>#</th>
         <th>Content</th>
         <th>Deadline</th>
-        <th>WriteDate</th>
+        <th>Writedate</th>
         <th>Done/WIP</th>
     </tr>
     </thead>
@@ -25,9 +25,9 @@
         <td>{{ t['deadline'] }}</td>
         <td>{{ t['date'] }}</td>
         <td>{% if t['done'] %}
-            <div class="text-success">?</div>
+            <div class="text-success">Done</div>
             {% else %}
-            <div class="text-danger">?</div>
+            <div class="text-danger">WIP</div>
             {% endif %}
         </td>
     </tr>
